@@ -1,0 +1,164 @@
+.m-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  height: var(--m-component-size-default);
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--m-border-color);
+  border-radius: var(--m-border-radius-base);
+  background-color: var(--m-bg-color);
+  color: var(--m-color-text-regular);
+  font-size: var(--m-font-size-base);
+  font-weight: 500;
+  padding: 0 15px;
+  transition: all var(--m-transition-duration) var(--m-transition-function-ease-in-out-bezier);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+}
+
+.m-button:hover,
+.m-button:focus {
+  color: var(--m-color-primary);
+  border-color: var(--m-color-primary-light-5);
+  background-color: var(--m-color-primary-light-9);
+  outline: none;
+}
+
+.m-button:active {
+  color: var(--m-color-primary-dark-2);
+  border-color: var(--m-color-primary-dark-2);
+  outline: none;
+}
+
+/* 按钮类型 */
+.m-button--primary {
+  color: #fff;
+  background-color: var(--m-color-primary);
+  border-color: var(--m-color-primary);
+}
+
+.m-button--primary:hover,
+.m-button--primary:focus {
+  background-color: var(--m-color-primary-light-3);
+  border-color: var(--m-color-primary-light-3);
+}
+
+.m-button--primary:active {
+  background-color: var(--m-color-primary-dark-2);
+  border-color: var(--m-color-primary-dark-2);
+}
+
+.m-button--success {
+  color: #fff;
+  background-color: var(--m-color-success);
+  border-color: var(--m-color-success);
+}
+
+.m-button--warning {
+  color: #fff;
+  background-color: var(--m-color-warning);
+  border-color: var(--m-color-warning);
+}
+
+.m-button--danger {
+  color: #fff;
+  background-color: var(--m-color-danger);
+  border-color: var(--m-color-danger);
+}
+
+.m-button--info {
+  color: #fff;
+  background-color: var(--m-color-info);
+  border-color: var(--m-color-info);
+}
+
+/* 按钮尺寸 */
+.m-button--large {
+  height: var(--m-component-size-large);
+  padding: 0 19px;
+  font-size: var(--m-font-size-medium);
+  border-radius: var(--m-border-radius-base);
+}
+
+.m-button--small {
+  height: var(--m-component-size-small);
+  padding: 0 11px;
+  font-size: var(--m-font-size-small);
+  border-radius: calc(var(--m-border-radius-base) - 1px);
+}
+
+/* 圆角按钮 */
+.m-button--round {
+  border-radius: var(--m-border-radius-round);
+}
+
+/* 圆形按钮 */
+.m-button--circle {
+  border-radius: 50%;
+  padding: 0;
+  width: var(--m-component-size-default);
+  height: var(--m-component-size-default);
+}
+
+.m-button--circle.m-button--large {
+  width: var(--m-component-size-large);
+  height: var(--m-component-size-large);
+}
+
+.m-button--circle.m-button--small {
+  width: var(--m-component-size-small);
+  height: var(--m-component-size-small);
+}
+
+/* 朴素按钮 */
+.m-button--plain {
+  background-color: transparent;
+}
+
+.m-button--plain.m-button--primary {
+  color: var(--m-color-primary);
+  border-color: var(--m-color-primary-light-5);
+  background-color: var(--m-color-primary-light-9);
+}
+
+/* 禁用状态 */
+.m-button:disabled,
+.m-button.is-disabled {
+  color: var(--m-color-text-disabled);
+  cursor: not-allowed;
+  background-image: none;
+  background-color: var(--m-bg-color);
+  border-color: var(--m-border-color-light);
+}
+
+.m-button:disabled:hover,
+.m-button:disabled:focus,
+.m-button.is-disabled:hover,
+.m-button.is-disabled:focus {
+  color: var(--m-color-text-disabled);
+  cursor: not-allowed;
+  background-image: none;
+  background-color: var(--m-bg-color);
+  border-color: var(--m-border-color-light);
+}
+
+/* 加载状态 */
+.m-button.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.m-button.is-loading:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: inherit;
+  background-color: rgba(255, 255, 255, 0.35);
+} 

@@ -1,0 +1,151 @@
+.m-input {
+  position: relative;
+  font-size: var(--m-font-size-base);
+  display: inline-flex;
+  width: 100%;
+  line-height: var(--m-component-size-default);
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.m-input__wrapper {
+  display: inline-flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 11px;
+  background-color: var(--m-bg-color);
+  background-image: none;
+  border-radius: var(--m-border-radius-base);
+  cursor: text;
+  transition: var(--m-transition-duration);
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0 0 0 1px var(--m-border-color) inset;
+}
+
+.m-input__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--m-border-color-hover, var(--m-color-text-placeholder)) inset;
+}
+
+.m-input.is-focus .m-input__wrapper {
+  box-shadow: 0 0 0 1px var(--m-color-primary) inset;
+}
+
+.m-input__inner {
+  --m-input-inner-height: calc(var(--m-component-size-default) - 2px);
+  width: 100%;
+  flex-grow: 1;
+  -webkit-appearance: none;
+  color: var(--m-color-text-regular);
+  font-size: inherit;
+  height: var(--m-input-inner-height);
+  line-height: var(--m-input-inner-height);
+  padding: 0;
+  outline: none;
+  border: none;
+  background: none;
+  box-sizing: border-box;
+}
+
+.m-input__inner::placeholder {
+  color: var(--m-color-text-placeholder);
+}
+
+/* 输入框尺寸 */
+.m-input--large {
+  font-size: var(--m-font-size-medium);
+  line-height: var(--m-component-size-large);
+}
+
+.m-input--large .m-input__wrapper {
+  padding: 1px 15px;
+}
+
+.m-input--large .m-input__inner {
+  --m-input-inner-height: calc(var(--m-component-size-large) - 2px);
+}
+
+.m-input--small {
+  font-size: var(--m-font-size-small);
+  line-height: var(--m-component-size-small);
+}
+
+.m-input--small .m-input__wrapper {
+  padding: 1px 7px;
+}
+
+.m-input--small .m-input__inner {
+  --m-input-inner-height: calc(var(--m-component-size-small) - 2px);
+}
+
+/* 禁用状态 */
+.m-input.is-disabled .m-input__wrapper {
+  background-color: var(--m-bg-color-page);
+  box-shadow: 0 0 0 1px var(--m-border-color) inset;
+  cursor: not-allowed;
+}
+
+.m-input.is-disabled .m-input__inner {
+  color: var(--m-color-text-disabled);
+  -webkit-text-fill-color: var(--m-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.m-input.is-disabled .m-input__inner::placeholder {
+  color: var(--m-color-text-disabled);
+}
+
+/* 只读状态 */
+.m-input.is-readonly .m-input__wrapper {
+  cursor: default;
+}
+
+.m-input.is-readonly .m-input__inner {
+  cursor: default;
+}
+
+/* 前缀和后缀 */
+.m-input__prefix,
+.m-input__suffix {
+  display: inline-flex;
+  white-space: nowrap;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  height: 100%;
+  text-align: center;
+  color: var(--m-color-text-placeholder);
+  transition: all var(--m-transition-duration);
+  pointer-events: none;
+}
+
+.m-input__prefix {
+  margin-right: 5px;
+}
+
+.m-input__suffix {
+  margin-left: 5px;
+}
+
+/* 清除按钮 */
+.m-input__clear {
+  color: var(--m-color-text-placeholder);
+  font-size: var(--m-font-size-base);
+  cursor: pointer;
+  transition: color var(--m-transition-duration);
+}
+
+.m-input__clear:hover {
+  color: var(--m-color-text-secondary);
+}
+
+/* 密码显示切换 */
+.m-input__password {
+  color: var(--m-color-text-placeholder);
+  font-size: var(--m-font-size-base);
+  cursor: pointer;
+  transition: color var(--m-transition-duration);
+}
+
+.m-input__password:hover {
+  color: var(--m-color-primary);
+} 
