@@ -67,8 +67,8 @@ import "midi-ui/dist/style.css";
 
 export default {
   components: {
-    MButton: Button,
-    MInput: Input,
+    MiButton: Button,
+    MiInput: Input,
   },
 };
 ```
