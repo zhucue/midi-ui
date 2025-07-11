@@ -24,8 +24,8 @@ Midi UI 提供了基于 ES modules 的开箱即用的 Tree Shaking 功能。
 
 ```typescript
 <template>
-  <m-button>按钮</m-button>
-  <m-input v-model="input" placeholder="请输入内容"></m-input>
+  <mi-button>按钮</mi-button>
+  <mi-input v-model="input" placeholder="请输入内容"></mi-input>
 </template>
 
 <script setup lang="ts">

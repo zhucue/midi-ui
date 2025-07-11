@@ -33,7 +33,7 @@ export interface InputProps {
 // 全局组件实例类型
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
-    MButton: typeof import('../components/Button/index.vue')['default']
-    MInput: typeof import('../components/Input/index.vue')['default']
+    MiButton: typeof import('../components/Button/index.vue')['default']
+    MiInput: typeof import('../components/Input/index.vue')['default']
   }
 } 

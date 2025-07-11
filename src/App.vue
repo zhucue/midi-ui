@@ -12,76 +12,76 @@
         <div class="demo-block">
           <h3>基础用法</h3>
           <div class="demo-row">
-            <m-button>默认按钮</m-button>
-            <m-button type="primary">主要按钮</m-button>
-            <m-button type="success">成功按钮</m-button>
-            <m-button type="warning">警告按钮</m-button>
-            <m-button type="danger">危险按钮</m-button>
-            <m-button type="info">信息按钮</m-button>
+            <mi-button>默认按钮</mi-button>
+            <mi-button type="primary">主要按钮</mi-button>
+            <mi-button type="success">成功按钮</mi-button>
+            <mi-button type="warning">警告按钮</mi-button>
+            <mi-button type="danger">危险按钮</mi-button>
+            <mi-button type="info">信息按钮</mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>朴素按钮</h3>
           <div class="demo-row">
-            <m-button plain>朴素按钮</m-button>
-            <m-button type="primary" plain>主要按钮</m-button>
-            <m-button type="success" plain>成功按钮</m-button>
-            <m-button type="warning" plain>警告按钮</m-button>
-            <m-button type="danger" plain>危险按钮</m-button>
-            <m-button type="info" plain>信息按钮</m-button>
+            <mi-button plain>朴素按钮</mi-button>
+            <mi-button type="primary" plain>主要按钮</mi-button>
+            <mi-button type="success" plain>成功按钮</mi-button>
+            <mi-button type="warning" plain>警告按钮</mi-button>
+            <mi-button type="danger" plain>危险按钮</mi-button>
+            <mi-button type="info" plain>信息按钮</mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>圆角按钮</h3>
           <div class="demo-row">
-            <m-button round>圆角按钮</m-button>
-            <m-button type="primary" round>主要按钮</m-button>
-            <m-button type="success" round>成功按钮</m-button>
-            <m-button type="warning" round>警告按钮</m-button>
-            <m-button type="danger" round>危险按钮</m-button>
-            <m-button type="info" round>信息按钮</m-button>
+            <mi-button round>圆角按钮</mi-button>
+            <mi-button type="primary" round>主要按钮</mi-button>
+            <mi-button type="success" round>成功按钮</mi-button>
+            <mi-button type="warning" round>警告按钮</mi-button>
+            <mi-button type="danger" round>危险按钮</mi-button>
+            <mi-button type="info" round>信息按钮</mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>图标按钮</h3>
           <div class="demo-row">
-            <m-button icon="🔍" circle></m-button>
-            <m-button type="primary" icon="✏️" circle></m-button>
-            <m-button type="success" icon="✓" circle></m-button>
-            <m-button type="warning" icon="⚠️" circle></m-button>
-            <m-button type="danger" icon="✕" circle></m-button>
-            <m-button type="info" icon="ℹ️" circle></m-button>
+            <mi-button icon="🔍" circle></mi-button>
+            <mi-button type="primary" icon="✏️" circle></mi-button>
+            <mi-button type="success" icon="✓" circle></mi-button>
+            <mi-button type="warning" icon="⚠️" circle></mi-button>
+            <mi-button type="danger" icon="✕" circle></mi-button>
+            <mi-button type="info" icon="ℹ️" circle></mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>不同尺寸</h3>
           <div class="demo-row">
-            <m-button size="large">大型按钮</m-button>
-            <m-button>默认按钮</m-button>
-            <m-button size="small">小型按钮</m-button>
+            <mi-button size="large">大型按钮</mi-button>
+            <mi-button>默认按钮</mi-button>
+            <mi-button size="small">小型按钮</mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>加载状态</h3>
           <div class="demo-row">
-            <m-button :loading="loading" @click="toggleLoading">
+            <mi-button :loading="loading" @click="toggleLoading">
               {{ loading ? "加载中" : "点击加载" }}
-            </m-button>
-            <m-button type="primary" loading>加载中</m-button>
+            </mi-button>
+            <mi-button type="primary" loading>加载中</mi-button>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>禁用状态</h3>
           <div class="demo-row">
-            <m-button disabled>禁用按钮</m-button>
-            <m-button type="primary" disabled>主要按钮</m-button>
-            <m-button type="success" disabled>成功按钮</m-button>
+            <mi-button disabled>禁用按钮</mi-button>
+            <mi-button type="primary" disabled>主要按钮</mi-button>
+            <mi-button type="success" disabled>成功按钮</mi-button>
           </div>
         </div>
       </section>
@@ -92,11 +92,11 @@
         <div class="demo-block">
           <h3>基础用法</h3>
           <div class="demo-row">
-            <m-input
+            <mi-input
               v-model="inputValue"
               placeholder="请输入内容"
               style="width: 200px"
-            ></m-input>
+            ></mi-input>
             <span class="demo-text">输入的值：{{ inputValue }}</span>
           </div>
         </div>
@@ -104,53 +104,53 @@
         <div class="demo-block">
           <h3>禁用状态</h3>
           <div class="demo-row">
-            <m-input
+            <mi-input
               disabled
               placeholder="禁用状态"
               style="width: 200px"
-            ></m-input>
+            ></mi-input>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>可清空</h3>
           <div class="demo-row">
-            <m-input
+            <mi-input
               v-model="clearableValue"
               clearable
               placeholder="可清空的输入框"
               style="width: 200px"
-            ></m-input>
+            ></mi-input>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>密码框</h3>
           <div class="demo-row">
-            <m-input
+            <mi-input
               v-model="passwordValue"
               type="password"
               show-password
               placeholder="请输入密码"
               style="width: 200px"
-            ></m-input>
+            ></mi-input>
           </div>
         </div>
 
         <div class="demo-block">
           <h3>不同尺寸</h3>
           <div class="demo-row">
-            <m-input
+            <mi-input
               size="large"
               placeholder="大型输入框"
               style="width: 200px"
-            ></m-input>
-            <m-input placeholder="默认输入框" style="width: 200px"></m-input>
-            <m-input
+            ></mi-input>
+            <mi-input placeholder="默认输入框" style="width: 200px"></mi-input>
+            <mi-input
               size="small"
               placeholder="小型输入框"
               style="width: 200px"
-            ></m-input>
+            ></mi-input>
           </div>
         </div>
       </section>

@@ -1,13 +1,13 @@
 <template>
   <div :class="inputClass">
-    <div class="m-input__wrapper">
-      <span v-if="$slots.prefix" class="m-input__prefix">
+    <div class="mi-input__wrapper">
+      <span v-if="$slots.prefix" class="mi-input__prefix">
         <slot name="prefix"></slot>
       </span>
 
       <input
         ref="inputRef"
-        :class="['m-input__inner']"
+        :class="['mi-input__inner']"
         :type="showPassword ? (passwordVisible ? 'text' : 'password') : type"
         :value="modelValue"
         :placeholder="placeholder"
@@ -23,18 +23,18 @@
 
       <span
         v-if="$slots.suffix || clearable || showPassword"
-        class="m-input__suffix"
+        class="mi-input__suffix"
       >
         <span
           v-if="clearable && modelValue && !disabled && !readonly"
-          class="m-input__clear"
+          class="mi-input__clear"
           @click="handleClear"
         >
           ✕
         </span>
         <span
           v-if="showPassword"
-          class="m-input__password"
+          class="mi-input__password"
           @click="togglePassword"
         >
           {{ passwordVisible ? "👁" : "👁‍🗨" }}
@@ -50,7 +50,7 @@ import { computed, ref, nextTick } from "vue";
 import type { InputProps } from "@/types";
 
 defineOptions({
-  name: "MInput",
+  name: "MiInput",
 });
 
 const props = withDefaults(defineProps<InputProps>(), {
@@ -76,8 +76,8 @@ const focused = ref(false);
 const passwordVisible = ref(false);
 
 const inputClass = computed(() => [
-  "m-input",
-  `m-input--${props.size}`,
+  "mi-input",
+  `mi-input--${props.size}`,
   {
     "is-disabled": props.disabled,
     "is-readonly": props.readonly,

@@ -6,7 +6,7 @@
 
 ```vue
 <template>
-  <m-input v-model="input" placeholder="请输入内容" />
+  <mi-input v-model="input" placeholder="请输入内容" />
 </template>
 
 <script setup lang="ts">
@@ -22,7 +22,7 @@ const input = ref("");
 
 ```vue
 <template>
-  <m-input disabled placeholder="请输入内容" />
+  <mi-input disabled placeholder="请输入内容" />
 </template>
 ```
 
@@ -32,7 +32,7 @@ const input = ref("");
 
 ```vue
 <template>
-  <m-input v-model="input" clearable placeholder="请输入内容" />
+  <mi-input v-model="input" clearable placeholder="请输入内容" />
 </template>
 
 <script setup lang="ts">
@@ -48,7 +48,7 @@ const input = ref("");
 
 ```vue
 <template>
-  <m-input
+  <mi-input
     v-model="input"
     type="password"
     show-password
@@ -68,9 +68,9 @@ const input = ref("");
 ```vue
 <template>
   <div>
-    <m-input size="large" placeholder="大型输入框" />
-    <m-input placeholder="默认输入框" />
-    <m-input size="small" placeholder="小型输入框" />
+    <mi-input size="large" placeholder="大型输入框" />
+    <mi-input placeholder="默认输入框" />
+    <mi-input size="small" placeholder="小型输入框" />
   </div>
 </template>
 ```

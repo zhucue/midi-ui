@@ -9,12 +9,12 @@
 ```vue
 <template>
   <div>
-    <m-button>默认按钮</m-button>
-    <m-button type="primary">主要按钮</m-button>
-    <m-button type="success">成功按钮</m-button>
-    <m-button type="warning">警告按钮</m-button>
-    <m-button type="danger">危险按钮</m-button>
-    <m-button type="info">信息按钮</m-button>
+    <mi-button>默认按钮</mi-button>
+    <mi-button type="primary">主要按钮</mi-button>
+    <mi-button type="success">成功按钮</mi-button>
+    <mi-button type="warning">警告按钮</mi-button>
+    <mi-button type="danger">危险按钮</mi-button>
+    <mi-button type="info">信息按钮</mi-button>
   </div>
 </template>
 ```
@@ -26,12 +26,12 @@
 ```vue
 <template>
   <div>
-    <m-button plain>朴素按钮</m-button>
-    <m-button type="primary" plain>主要按钮</m-button>
-    <m-button type="success" plain>成功按钮</m-button>
-    <m-button type="warning" plain>警告按钮</m-button>
-    <m-button type="danger" plain>危险按钮</m-button>
-    <m-button type="info" plain>信息按钮</m-button>
+    <mi-button plain>朴素按钮</mi-button>
+    <mi-button type="primary" plain>主要按钮</mi-button>
+    <mi-button type="success" plain>成功按钮</mi-button>
+    <mi-button type="warning" plain>警告按钮</mi-button>
+    <mi-button type="danger" plain>危险按钮</mi-button>
+    <mi-button type="info" plain>信息按钮</mi-button>
   </div>
 </template>
 ```
@@ -43,8 +43,8 @@
 ```vue
 <template>
   <div>
-    <m-button disabled>默认按钮</m-button>
-    <m-button type="primary" disabled>主要按钮</m-button>
+    <mi-button disabled>默认按钮</mi-button>
+    <mi-button type="primary" disabled>主要按钮</mi-button>
   </div>
 </template>
 ```
@@ -56,9 +56,9 @@
 ```vue
 <template>
   <div>
-    <m-button size="large">大型按钮</m-button>
-    <m-button>默认按钮</m-button>
-    <m-button size="small">小型按钮</m-button>
+    <mi-button size="large">大型按钮</mi-button>
+    <mi-button>默认按钮</mi-button>
+    <mi-button size="small">小型按钮</mi-button>
   </div>
 </template>
 ```

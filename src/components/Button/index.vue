@@ -4,9 +4,9 @@
     :disabled="disabled || loading"
     @click="handleClick"
   >
-    <span v-if="loading" class="m-button__loading">⟳</span>
-    <span v-if="icon && !loading" class="m-button__icon">{{ icon }}</span>
-    <span v-if="$slots.default" class="m-button__text">
+    <span v-if="loading" class="mi-button__loading">⟳</span>
+    <span v-if="icon && !loading" class="mi-button__icon">{{ icon }}</span>
+    <span v-if="$slots.default" class="mi-button__text">
       <slot></slot>
     </span>
   </button>
@@ -17,7 +17,7 @@ import { computed } from "vue";
 import type { ButtonProps } from "@/types";
 
 defineOptions({
-  name: "MButton",
+  name: "MiButton",
 });
 
 const props = withDefaults(defineProps<ButtonProps>(), {
@@ -35,13 +35,13 @@ const emit = defineEmits<{
 }>();
 
 const buttonClass = computed(() => [
-  "m-button",
-  `m-button--${props.type}`,
-  `m-button--${props.size}`,
+  "mi-button",
+  `mi-button--${props.type}`,
+  `mi-button--${props.size}`,
   {
-    "m-button--round": props.round,
-    "m-button--circle": props.circle,
-    "m-button--plain": props.plain,
+    "mi-button--round": props.round,
+    "mi-button--circle": props.circle,
+    "mi-button--plain": props.plain,
     "is-disabled": props.disabled,
     "is-loading": props.loading,
   },
@@ -54,18 +54,18 @@ const handleClick = (evt: MouseEvent) => {
 </script>
 
 <style scoped>
-.m-button__loading {
+.mi-button__loading {
   display: inline-block;
   animation: rotating 2s linear infinite;
   margin-right: 4px;
 }
 
-.m-button__icon {
+.mi-button__icon {
   margin-right: 4px;
 }
 
-.m-button--circle .m-button__icon,
-.m-button--circle .m-button__loading {
+.mi-button--circle .mi-button__icon,
+.mi-button--circle .mi-button__loading {
   margin-right: 0;
 }
 
