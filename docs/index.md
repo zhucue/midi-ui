@@ -9,7 +9,8 @@
 📦 **开箱即用**：丰富的组件和完善的文档  
 🔧 **TypeScript**：完整的类型定义  
 🎯 **按需引入**：支持 Tree Shaking，减少包体积  
-⚡ **快速开发**：基于 Vite 的极速开发体验
+⚡ **快速开发**：基于 Vite 的极速开发体验  
+🌟 **全局状态管理**：内置Loading状态管理，支持全局和局部Loading
 
 ## 快速开始
 
@@ -26,15 +27,17 @@ yarn add midi-ui
 ### 使用
 
 ```typescript
-import { createApp } from "vue";
-import MidiUI from "midi-ui";
-import "midi-ui/dist/style.css";
+import { createApp } from 'vue';
+import MidiUI from 'midi-ui';
+import 'midi-ui/dist/style.css';
 
 const app = createApp(App);
 app.use(MidiUI);
 ```
 
 ## 组件预览
+
+### 按钮组件
 
 <div style="margin: 20px 0;">
   <button style="margin-right: 8px; padding: 8px 16px; background: #409eff; color: white; border: none; border-radius: 4px;">主要按钮</button>
@@ -43,7 +46,36 @@ app.use(MidiUI);
   <button style="margin-right: 8px; padding: 8px 16px; background: #f56c6c; color: white; border: none; border-radius: 4px;">危险按钮</button>
 </div>
 
+### 输入框组件
+
 <div style="margin: 20px 0;">
   <input style="margin-right: 8px; padding: 8px 12px; border: 1px solid #dcdfe6; border-radius: 4px;" placeholder="请输入内容">
   <input style="margin-right: 8px; padding: 8px 12px; border: 1px solid #dcdfe6; border-radius: 4px;" placeholder="禁用状态" disabled>
 </div>
+
+### Loading组件
+
+<div style="margin: 20px 0; text-align: center;">
+  <div style="display: inline-block; padding: 20px; border: 1px solid #e6e6e6; border-radius: 8px; background: #f9f9f9;">
+    <div style="display: flex; gap: 4px; justify-content: center; margin-bottom: 10px;">
+      <div style="width: 8px; height: 8px; background: #409eff; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both;"></div>
+      <div style="width: 8px; height: 8px; background: #409eff; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; animation-delay: -0.16s;"></div>
+      <div style="width: 8px; height: 8px; background: #409eff; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; animation-delay: 0s;"></div>
+      <div style="width: 8px; height: 8px; background: #409eff; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; animation-delay: 0.16s;"></div>
+    </div>
+    <div style="font-size: 14px; color: #666;">加载中...</div>
+  </div>
+</div>
+
+<style>
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+</style>
+
+## 主要组件
+
+- **Button 按钮** - 常用的操作按钮，支持多种类型和状态
+- **Input 输入框** - 功能丰富的输入框组件，支持多种类型和验证
+- **Loading 加载** - 优雅的加载组件，支持全局和局部Loading效果

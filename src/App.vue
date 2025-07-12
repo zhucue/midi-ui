@@ -70,7 +70,7 @@
           <h3>加载状态</h3>
           <div class="demo-row">
             <mi-button :loading="loading" @click="toggleLoading">
-              {{ loading ? "加载中" : "点击加载" }}
+              {{ loading ? '加载中' : '点击加载' }}
             </mi-button>
             <mi-button type="primary" loading>加载中</mi-button>
           </div>
@@ -154,27 +154,68 @@
           </div>
         </div>
       </section>
+
+      <!-- Loading组件演示 -->
+      <section class="demo-section">
+        <h2>Loading 加载</h2>
+        <div class="demo-block">
+          <h3>全局Loading</h3>
+          <div class="demo-row">
+            <mi-button type="primary" @click="showGlobalLoading">
+              显示全局Loading
+            </mi-button>
+            <mi-button type="success" @click="showGlobalLoadingWithText">
+              显示带文字的Loading
+            </mi-button>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="app-footer">
-      <p>&copy; 2024 Midi UI. 基于 MIT 协议开源</p>
-    </footer>
+    <!-- 全局Loading组件 -->
+    <mi-global-loading />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
+import GlobalLoading from './components/GlobalLoading/index.vue';
+import { useLoading } from './composables/useLoading';
 
 const loading = ref(false);
-const inputValue = ref("");
-const clearableValue = ref("可清空的内容");
-const passwordValue = ref("");
+const inputValue = ref('');
+const clearableValue = ref('可清空的内容');
+const passwordValue = ref('');
+
+const { showLoading, hideLoading } = useLoading();
 
 const toggleLoading = () => {
   loading.value = true;
   setTimeout(() => {
     loading.value = false;
   }, 2000);
+};
+
+/**
+ * 显示全局Loading演示
+ * 展示基础的Loading效果，3秒后自动隐藏
+ */
+const showGlobalLoading = () => {
+  showLoading();
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
+};
+
+/**
+ * 显示带文字的全局Loading演示
+ * 展示带自定义文字的Loading效果，3秒后自动隐藏
+ */
+const showGlobalLoadingWithText = () => {
+  showLoading('数据加载中，请稍候...');
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
 };
 </script>
 

@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Midi UI',
-  description: '基于 Vue 3.6 + TypeScript 的现代化组件库',
+  description: '基于 Vue 3.5 + Pinia + Vite + TypeScript 的现代化组件库',
   
   // 网站头部配置
   head: [
@@ -38,7 +38,8 @@ export default defineConfig({
           text: '基础组件',
           items: [
             { text: 'Button 按钮', link: '/components/button' },
-            { text: 'Input 输入框', link: '/components/input' }
+            { text: 'Input 输入框', link: '/components/input' },
+            { text: 'Loading 加载', link: '/components/loading' }
           ]
         }
       ]

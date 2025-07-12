@@ -1,133 +1,140 @@
 # Midi UI
 
-基于 Vue 3.5 + Pinia + Vite + TypeScript 的现代化组件库
+基于 Vue 3.5 + Pinia + Vite + TypeScript 的组件库
 
-## 特性
+## 🚀 快速开始
 
-✨ **现代化技术栈**：Vue 3.5 + TypeScript + Vite  
-🎨 **精美设计**：简洁现代的设计风格  
-📦 **开箱即用**：丰富的组件和完善的文档  
-🔧 **TypeScript**：完整的类型定义  
-🎯 **按需引入**：支持 Tree Shaking，减少包体积  
-⚡ **快速开发**：基于 Vite 的极速开发体验
-
-## 快速开始
-
-### 安装依赖
+### 安装
 
 ```bash
-# 推荐使用 pnpm
-pnpm install
-
-# 或者使用 npm
-npm install
-
-# 或者使用 yarn
-yarn install
+npm install midi-ui
 ```
 
-### 启动开发服务器
+### 全量导入
 
-```bash
-# 启动演示应用
-pnpm dev
-
-# 或者
-npm run dev
-```
-
-### 构建组件库
-
-```bash
-# 构建库文件
-pnpm build:lib
-
-# 或者
-npm run build:lib
-```
-
-## 使用方式
-
-### 完整引入
-
-```typescript
-import { createApp } from "vue";
-import MidiUI from "midi-ui";
-import "midi-ui/dist/style.css";
+```ts
+import { createApp } from 'vue';
+import MidiUI from 'midi-ui';
+import 'midi-ui/dist/style.css';
 
 const app = createApp(App);
 app.use(MidiUI);
+app.mount('#app');
 ```
 
-### 按需引入
+### 按需导入
 
-```typescript
-import { Button, Input } from "midi-ui";
-import "midi-ui/dist/style.css";
+```ts
+import { Button, Input, Loading, useLoading } from 'midi-ui';
+```
 
-export default {
-  components: {
-    MiButton: Button,
-    MiInput: Input,
-  },
+## 📦 组件
+
+### Button 按钮
+
+基础的按钮组件，支持多种类型、尺寸和状态。
+
+```vue
+<template>
+  <mi-button type="primary">主要按钮</mi-button>
+  <mi-button type="success" loading>加载中</mi-button>
+</template>
+```
+
+### Input 输入框
+
+功能丰富的输入框组件。
+
+```vue
+<template>
+  <mi-input v-model="value" placeholder="请输入内容" />
+  <mi-input type="password" show-password />
+</template>
+```
+
+### Loading 加载
+
+优雅的加载组件，支持全局和局部两种使用方式。
+
+#### 全局Loading（推荐）
+
+```vue
+<template>
+  <div>
+    <mi-button @click="showGlobalLoading">显示Loading</mi-button>
+    <!-- 全局Loading组件 -->
+    <mi-global-loading />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useLoading } from 'midi-ui';
+
+const { showLoading, hideLoading } = useLoading();
+
+const showGlobalLoading = () => {
+  showLoading('加载中...');
+
+  // 3秒后隐藏
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
 };
+</script>
 ```
 
-## 组件列表
+#### 局部Loading
 
-- 🔘 Button 按钮
-- 📝 Input 输入框
-- 更多组件正在开发中...
+```vue
+<template>
+  <mi-loading
+    :visible="loading"
+    text="数据加载中..."
+    @close="loading = false"
+  />
+</template>
 
-## 开发指南
+<script setup lang="ts">
+import { ref } from 'vue';
 
-### 项目结构
-
-```
-midi-ui/
-├── src/
-│   ├── components/          # 组件源码
-│   │   ├── Button/         # 按钮组件
-│   │   └── Input/          # 输入框组件
-│   ├── styles/             # 样式文件
-│   │   ├── components/     # 组件样式
-│   │   ├── variables.css   # CSS 变量
-│   │   ├── reset.css      # 重置样式
-│   │   └── utils.css      # 工具类
-│   ├── types/             # 类型定义
-│   ├── index.ts           # 库入口文件
-│   ├── main.ts           # 演示应用入口
-│   └── App.vue           # 演示应用组件
-├── package.json
-├── tsconfig.json
-├── vite.config.ts        # 开发配置
-└── vite.lib.config.ts    # 库构建配置
+const loading = ref(false);
+</script>
 ```
 
-### 添加新组件
+## 🎯 特性
 
-1. 在 `src/components/` 下创建新组件目录
-2. 编写组件代码和样式
-3. 在 `src/types/index.ts` 中添加类型定义
-4. 在 `src/index.ts` 中导出组件
-5. 在 `src/App.vue` 中添加演示代码
+- 📦 **开箱即用**：简单易用的API设计
+- 🎨 **美观现代**：精心设计的UI界面
+- 🔧 **高度可定制**：丰富的配置选项
+- 🌈 **主题支持**：支持深色模式和自定义主题
+- 📱 **响应式**：完美适配移动端和桌面端
+- 🚀 **高性能**：基于Vue 3.5 + Composition API
+- 💪 **TypeScript**：完整的类型支持
+- 🎪 **现代化**：使用最新的Web技术
 
-### 脚本命令
+## 🔧 开发
 
-- `pnpm dev` - 启动开发服务器
-- `pnpm build` - 构建演示应用
-- `pnpm build:lib` - 构建组件库
-- `pnpm preview` - 预览构建结果
-- `pnpm type-check` - 类型检查
+```bash
+# 克隆项目
+git clone https://github.com/your-username/midi-ui.git
 
-## 浏览器支持
+# 安装依赖
+npm install
 
-现代浏览器及 IE11+
+# 启动开发服务器
+npm run dev
 
-| IE / Edge  | Firefox         | Chrome          | Safari          |
-| ---------- | --------------- | --------------- | --------------- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions |
+# 构建组件库
+npm run build:lib
 
-## 贡献指南
+# 构建文档
+npm run docs:build
+```
 
-欢迎提交 issue 和 PR 来帮助改进项目！
+## 📖 文档
+
+详细文档请访问：[文档地址](https://your-docs-url.com)
+
+## 📄 许可证
+
+MIT License © 2024 Midi UI

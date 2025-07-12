@@ -30,10 +30,19 @@ export interface InputProps {
   minlength?: number
 }
 
+// Loading组件属性接口
+export interface LoadingProps {
+  visible?: boolean       // 是否显示Loading，默认false
+  text?: string          // 加载文字，可选
+  maskClosable?: boolean // 是否可点击遮罩关闭，默认false
+  zIndex?: number        // 层级，默认9999
+}
+
 // 全局组件实例类型
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
     MiButton: typeof import('../components/Button/index.vue')['default']
     MiInput: typeof import('../components/Input/index.vue')['default']
+    MiLoading: typeof import('../components/Loading/index.vue')['default']
   }
 } 
