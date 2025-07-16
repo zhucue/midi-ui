@@ -1,12 +1,12 @@
-/* 重置样式 */
-@import './reset.css';
-
 /* 变量定义 */
 @import './variables.css';
 
 /* 组件样式 */
 @import './components/button.css';
 @import './components/input.css';
+@import './components/color.css';
+
+/* Loading组件的样式直接在组件内部定义，不需要单独的CSS文件 */
 
 /* 工具类 */
 @import './utils.css'; 
