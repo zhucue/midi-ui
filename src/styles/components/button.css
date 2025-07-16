@@ -12,82 +12,138 @@
   color: var(--m-color-text-regular);
   font-size: var(--m-font-size-base);
   font-weight: 500;
-  padding: 0 15px;
-  transition: all var(--m-transition-duration) var(--m-transition-function-ease-in-out-bezier);
+  padding: 0 20px;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   user-select: none;
   vertical-align: middle;
   -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+}
+
+.mi-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.mi-button:hover::before {
+  opacity: 1;
 }
 
 .mi-button:hover,
 .mi-button:focus {
   color: var(--m-color-primary);
-  border-color: var(--m-color-primary-light-5);
+  border-color: var(--m-color-primary);
   background-color: var(--m-color-primary-light-9);
   outline: none;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.15);
 }
 
 .mi-button:active {
   color: var(--m-color-primary-dark-2);
   border-color: var(--m-color-primary-dark-2);
   outline: none;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(64, 158, 255, 0.12);
 }
 
 /* 按钮类型 */
 .mi-button--primary {
   color: #fff;
-  background-color: var(--m-color-primary);
+  background: linear-gradient(135deg, var(--m-color-primary) 0%, var(--m-color-primary-light-1) 100%);
   border-color: var(--m-color-primary);
+  box-shadow: 0 2px 4px rgba(64, 158, 255, 0.2);
 }
 
 .mi-button--primary:hover,
 .mi-button--primary:focus {
-  background-color: var(--m-color-primary-light-3);
-  border-color: var(--m-color-primary-light-3);
+  background: linear-gradient(135deg, var(--m-color-primary-light-1) 0%, var(--m-color-primary-light-2) 100%);
+  border-color: var(--m-color-primary-light-1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(64, 158, 255, 0.3);
 }
 
 .mi-button--primary:active {
-  background-color: var(--m-color-primary-dark-2);
+  background: linear-gradient(135deg, var(--m-color-primary-dark-2) 0%, var(--m-color-primary) 100%);
   border-color: var(--m-color-primary-dark-2);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(64, 158, 255, 0.25);
 }
 
 .mi-button--success {
   color: #fff;
-  background-color: var(--m-color-success);
+  background: linear-gradient(135deg, var(--m-color-success) 0%, #7ed321 100%);
   border-color: var(--m-color-success);
+  box-shadow: 0 2px 4px rgba(103, 194, 58, 0.2);
+}
+
+.mi-button--success:hover {
+  background: linear-gradient(135deg, #7ed321 0%, #9ee83f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(103, 194, 58, 0.3);
 }
 
 .mi-button--warning {
   color: #fff;
-  background-color: var(--m-color-warning);
+  background: linear-gradient(135deg, var(--m-color-warning) 0%, #f7ba2a 100%);
   border-color: var(--m-color-warning);
+  box-shadow: 0 2px 4px rgba(230, 162, 60, 0.2);
+}
+
+.mi-button--warning:hover {
+  background: linear-gradient(135deg, #f7ba2a 0%, #ffd93d 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(230, 162, 60, 0.3);
 }
 
 .mi-button--danger {
   color: #fff;
-  background-color: var(--m-color-danger);
+  background: linear-gradient(135deg, var(--m-color-danger) 0%, #ff8a80 100%);
   border-color: var(--m-color-danger);
+  box-shadow: 0 2px 4px rgba(245, 108, 108, 0.2);
+}
+
+.mi-button--danger:hover {
+  background: linear-gradient(135deg, #ff8a80 0%, #ffab91 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 108, 108, 0.3);
 }
 
 .mi-button--info {
   color: #fff;
-  background-color: var(--m-color-info);
+  background: linear-gradient(135deg, var(--m-color-info) 0%, #a4a7b0 100%);
   border-color: var(--m-color-info);
+  box-shadow: 0 2px 4px rgba(144, 147, 153, 0.2);
+}
+
+.mi-button--info:hover {
+  background: linear-gradient(135deg, #a4a7b0 0%, #b8bcc8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(144, 147, 153, 0.3);
 }
 
 /* 按钮尺寸 */
 .mi-button--large {
   height: var(--m-component-size-large);
-  padding: 0 19px;
+  padding: 0 24px;
   font-size: var(--m-font-size-medium);
-  border-radius: var(--m-border-radius-base);
+  border-radius: 6px;
 }
 
 .mi-button--small {
   height: var(--m-component-size-small);
-  padding: 0 11px;
+  padding: 0 16px;
   font-size: var(--m-font-size-small);
-  border-radius: calc(var(--m-border-radius-base) - 1px);
+  border-radius: 3px;
 }
 
 /* 圆角按钮 */
@@ -115,13 +171,23 @@
 
 /* 朴素按钮 */
 .mi-button--plain {
-  background-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mi-button--plain:hover {
+  background-color: var(--m-color-primary-light-9);
 }
 
 .mi-button--plain.mi-button--primary {
   color: var(--m-color-primary);
-  border-color: var(--m-color-primary-light-5);
-  background-color: var(--m-color-primary-light-9);
+  border-color: var(--m-color-primary);
+  background: transparent;
+}
+
+.mi-button--plain.mi-button--primary:hover {
+  background-color: var(--m-color-primary);
+  color: #fff;
 }
 
 /* 禁用状态 */
@@ -129,9 +195,15 @@
 .mi-button.is-disabled {
   color: var(--m-color-text-disabled);
   cursor: not-allowed;
-  background-image: none;
-  background-color: var(--m-bg-color);
+  background: var(--m-bg-color-page);
   border-color: var(--m-border-color-light);
+  box-shadow: none;
+  transform: none;
+}
+
+.mi-button:disabled::before,
+.mi-button.is-disabled::before {
+  display: none;
 }
 
 .mi-button:disabled:hover,
@@ -140,9 +212,10 @@
 .mi-button.is-disabled:focus {
   color: var(--m-color-text-disabled);
   cursor: not-allowed;
-  background-image: none;
-  background-color: var(--m-bg-color);
+  background: var(--m-bg-color-page);
   border-color: var(--m-border-color-light);
+  transform: none;
+  box-shadow: none;
 }
 
 /* 加载状态 */

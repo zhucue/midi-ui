@@ -13,22 +13,45 @@
   flex-grow: 1;
   align-items: center;
   justify-content: center;
-  padding: 1px 11px;
+  padding: 1px 16px;
   background-color: var(--m-bg-color);
   background-image: none;
   border-radius: var(--m-border-radius-base);
   cursor: text;
-  transition: var(--m-transition-duration);
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   transform: translate3d(0, 0, 0);
-  box-shadow: 0 0 0 1px var(--m-border-color) inset;
+  box-shadow: 0 0 0 1px var(--m-border-color) inset, 0 2px 4px rgba(0, 0, 0, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+.mi-input__wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(64, 158, 255, 0.05) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
 }
 
 .mi-input__wrapper:hover {
-  box-shadow: 0 0 0 1px var(--m-border-color-hover, var(--m-color-text-placeholder)) inset;
+  box-shadow: 0 0 0 1px var(--m-color-primary-light-5) inset, 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.mi-input__wrapper:hover::before {
+  opacity: 1;
 }
 
 .mi-input.is-focus .mi-input__wrapper {
-  box-shadow: 0 0 0 1px var(--m-color-primary) inset;
+  box-shadow: 0 0 0 2px var(--m-color-primary-light-7) inset, 0 0 0 1px var(--m-color-primary) inset, 0 4px 12px rgba(64, 158, 255, 0.15);
+}
+
+.mi-input.is-focus .mi-input__wrapper::before {
+  opacity: 1;
 }
 
 .mi-input__inner {
@@ -45,10 +68,18 @@
   border: none;
   background: none;
   box-sizing: border-box;
+  font-weight: 400;
+  transition: color 0.2s ease;
 }
 
 .mi-input__inner::placeholder {
   color: var(--m-color-text-placeholder);
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.mi-input.is-focus .mi-input__inner::placeholder {
+  color: var(--m-color-primary-light-3);
 }
 
 /* 输入框尺寸 */
@@ -58,7 +89,8 @@
 }
 
 .mi-input--large .mi-input__wrapper {
-  padding: 1px 15px;
+  padding: 1px 20px;
+  border-radius: 6px;
 }
 
 .mi-input--large .mi-input__inner {
@@ -71,7 +103,8 @@
 }
 
 .mi-input--small .mi-input__wrapper {
-  padding: 1px 7px;
+  padding: 1px 12px;
+  border-radius: 3px;
 }
 
 .mi-input--small .mi-input__inner {
@@ -81,8 +114,13 @@
 /* 禁用状态 */
 .mi-input.is-disabled .mi-input__wrapper {
   background-color: var(--m-bg-color-page);
-  box-shadow: 0 0 0 1px var(--m-border-color) inset;
+  box-shadow: 0 0 0 1px var(--m-border-color-light) inset;
   cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.mi-input.is-disabled .mi-input__wrapper::before {
+  display: none;
 }
 
 .mi-input.is-disabled .mi-input__inner {
@@ -98,6 +136,7 @@
 /* 只读状态 */
 .mi-input.is-readonly .mi-input__wrapper {
   cursor: default;
+  background-color: var(--m-bg-color-page);
 }
 
 .mi-input.is-readonly .mi-input__inner {
@@ -114,16 +153,22 @@
   height: 100%;
   text-align: center;
   color: var(--m-color-text-placeholder);
-  transition: all var(--m-transition-duration);
+  transition: all 0.2s ease;
   pointer-events: none;
+  align-items: center;
 }
 
 .mi-input__prefix {
-  margin-right: 5px;
+  margin-right: 8px;
 }
 
 .mi-input__suffix {
-  margin-left: 5px;
+  margin-left: 8px;
+}
+
+.mi-input.is-focus .mi-input__prefix,
+.mi-input.is-focus .mi-input__suffix {
+  color: var(--m-color-primary);
 }
 
 /* 清除按钮 */
@@ -131,21 +176,50 @@
   color: var(--m-color-text-placeholder);
   font-size: var(--m-font-size-base);
   cursor: pointer;
-  transition: color var(--m-transition-duration);
+  transition: all 0.2s ease;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mi-input__clear:hover {
-  color: var(--m-color-text-secondary);
+  color: var(--m-color-text-regular);
+  background-color: var(--m-color-primary-light-8);
 }
 
-/* 密码显示切换 */
-.mi-input__password {
+/* 密码显示切换按钮 */
+.mi-input__password-toggle {
   color: var(--m-color-text-placeholder);
-  font-size: var(--m-font-size-base);
   cursor: pointer;
-  transition: color var(--m-transition-duration);
+  transition: all 0.2s ease;
+  padding: 2px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.mi-input__password:hover {
+.mi-input__password-toggle:hover {
   color: var(--m-color-primary);
-} 
+  background-color: var(--m-color-primary-light-9);
+}
+
+/* 错误状态 */
+.mi-input.is-error .mi-input__wrapper {
+  box-shadow: 0 0 0 1px var(--m-color-danger) inset, 0 4px 8px rgba(245, 108, 108, 0.1);
+}
+
+.mi-input.is-error.is-focus .mi-input__wrapper {
+  box-shadow: 0 0 0 2px rgba(245, 108, 108, 0.2) inset, 0 0 0 1px var(--m-color-danger) inset;
+}
+
+/* 成功状态 */
+.mi-input.is-success .mi-input__wrapper {
+  box-shadow: 0 0 0 1px var(--m-color-success) inset, 0 4px 8px rgba(103, 194, 58, 0.1);
+}
+
+.mi-input.is-success.is-focus .mi-input__wrapper {
+  box-shadow: 0 0 0 2px rgba(103, 194, 58, 0.2) inset, 0 0 0 1px var(--m-color-success) inset;
+}

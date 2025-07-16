@@ -14,9 +14,28 @@
 
   /* 功能色 */
   --m-color-success: #67c23a;
+  --m-color-success-light-3: #85ce61;
+  --m-color-success-light-5: #a4da89;
+  --m-color-success-light-7: #c2e7b0;
+  --m-color-success-light-9: #f0f9ff;
+  
   --m-color-warning: #e6a23c;
+  --m-color-warning-light-3: #ebb563;
+  --m-color-warning-light-5: #f0c78a;
+  --m-color-warning-light-7: #f5dab1;
+  --m-color-warning-light-9: #fdf6ec;
+  
   --m-color-danger: #f56c6c;
+  --m-color-danger-light-3: #f78989;
+  --m-color-danger-light-5: #fab6b6;
+  --m-color-danger-light-7: #fcd3d3;
+  --m-color-danger-light-9: #fef0f0;
+  
   --m-color-info: #909399;
+  --m-color-info-light-3: #a6a9ad;
+  --m-color-info-light-5: #bcbec2;
+  --m-color-info-light-7: #d3d4d6;
+  --m-color-info-light-9: #f4f4f5;
 
   /* 中性色 */
   --m-color-text-primary: #303133;
@@ -30,6 +49,7 @@
   --m-border-color-light: #e4e7ed;
   --m-border-color-lighter: #ebeef5;
   --m-border-color-extra-light: #f2f6fc;
+  --m-border-color-hover: #c0c4cc;
 
   /* 背景色 */
   --m-bg-color: #ffffff;

@@ -56,17 +56,37 @@ const handleClick = (evt: MouseEvent) => {
 <style scoped>
 .mi-button__loading {
   display: inline-block;
-  animation: rotating 2s linear infinite;
-  margin-right: 4px;
+  animation: rotating 1.5s linear infinite;
+  margin-right: 6px;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .mi-button__icon {
-  margin-right: 4px;
+  margin-right: 6px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.mi-button__text {
+  display: flex;
+  align-items: center;
 }
 
 .mi-button--circle .mi-button__icon,
 .mi-button--circle .mi-button__loading {
   margin-right: 0;
+}
+
+.mi-button--small .mi-button__loading,
+.mi-button--small .mi-button__icon {
+  font-size: 12px;
+}
+
+.mi-button--large .mi-button__loading,
+.mi-button--large .mi-button__icon {
+  font-size: 18px;
 }
 
 @keyframes rotating {
@@ -76,5 +96,18 @@ const handleClick = (evt: MouseEvent) => {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/* 按钮内容布局优化 */
+.mi-button {
+  gap: 4px;
+}
+
+.mi-button--large {
+  gap: 6px;
+}
+
+.mi-button--small {
+  gap: 3px;
 }
 </style>
