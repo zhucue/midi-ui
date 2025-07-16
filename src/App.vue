@@ -169,11 +169,54 @@
             </mi-button>
           </div>
         </div>
-      </section>
-    </main>
 
-    <!-- 全局Loading组件 -->
-    <mi-global-loading />
+        <div class="demo-block">
+          <h3>不同动画类型</h3>
+          <div class="demo-row">
+            <mi-button @click="showDotsLoading">圆点动画</mi-button>
+            <mi-button @click="showCircleLoading">圆环动画</mi-button>
+            <mi-button @click="showBarsLoading">条形动画</mi-button>
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>局部Loading</h3>
+          <div class="demo-row">
+            <mi-button @click="localLoading = true">显示局部Loading</mi-button>
+            <mi-button @click="localCircleLoading = true">圆环局部Loading</mi-button>
+            <mi-button @click="localBarsLoading = true">条形局部Loading</mi-button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 局部Loading组件 -->
+      <mi-loading
+        :visible="localLoading"
+        text="局部加载中..."
+        spinner="dots"
+        :mask-closable="true"
+        @close="localLoading = false"
+      />
+      
+      <mi-loading
+        :visible="localCircleLoading"
+        text="圆环加载中..."
+        spinner="circle"
+        :mask-closable="true"
+        @close="localCircleLoading = false"
+      />
+      
+      <mi-loading
+        :visible="localBarsLoading"
+        text="条形加载中..."
+        spinner="bars"
+        :mask-closable="true"
+        @close="localBarsLoading = false"
+      />
+
+      <!-- 全局Loading组件 -->
+      <mi-global-loading />
+    </main>
   </div>
 </template>
 
@@ -186,6 +229,11 @@ const loading = ref(false);
 const inputValue = ref('');
 const clearableValue = ref('可清空的内容');
 const passwordValue = ref('');
+
+// 局部Loading状态
+const localLoading = ref(false);
+const localCircleLoading = ref(false);
+const localBarsLoading = ref(false);
 
 const { showLoading, hideLoading } = useLoading();
 
@@ -213,6 +261,36 @@ const showGlobalLoading = () => {
  */
 const showGlobalLoadingWithText = () => {
   showLoading('数据加载中，请稍候...');
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
+};
+
+/**
+ * 显示圆点动画Loading
+ */
+const showDotsLoading = () => {
+  showLoading('圆点加载中...', 'dots');
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
+};
+
+/**
+ * 显示圆环动画Loading
+ */
+const showCircleLoading = () => {
+  showLoading('圆环加载中...', 'circle');
+  setTimeout(() => {
+    hideLoading();
+  }, 3000);
+};
+
+/**
+ * 显示条形动画Loading
+ */
+const showBarsLoading = () => {
+  showLoading('条形加载中...', 'bars');
   setTimeout(() => {
     hideLoading();
   }, 3000);

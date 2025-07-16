@@ -36,6 +36,7 @@ export interface LoadingProps {
   text?: string          // 加载文字，可选
   maskClosable?: boolean // 是否可点击遮罩关闭，默认false
   zIndex?: number        // 层级，默认9999
+  spinner?:'dots' | 'circle' | 'bars'
 }
 
 // 全局组件实例类型

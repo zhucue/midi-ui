@@ -1,20 +1,30 @@
 <template>
-  <!-- 全局Loading组件 - 通过useLoading composable统一管理状态 -->
   <teleport to="body">
-    <!-- 淡入淡出过渡动画 -->
     <transition name="mi-loading-fade">
-      <!-- 遮罩层 - 根据全局状态显示/隐藏 -->
       <div v-if="loadingState.visible" class="mi-loading-mask">
-        <!-- 加载器容器 -->
         <div class="mi-loading-spinner">
-          <!-- 四个跳动的圆点动画 -->
-          <div class="mi-loading-animation">
+          <!-- 根据全局状态的spinner类型显示不同动画 -->
+          <div v-if="loadingState.spinner === 'dots'" class="mi-loading-animation">
             <div class="mi-loading-dot"></div>
             <div class="mi-loading-dot"></div>
             <div class="mi-loading-dot"></div>
             <div class="mi-loading-dot"></div>
           </div>
-          <!-- 加载文字 - 根据全局状态显示 -->
+          
+          <div v-else-if="loadingState.spinner === 'circle'" class="mi-loading-circle">
+            <svg viewBox="0 0 50 50" class="mi-loading-circular">
+              <circle cx="25" cy="25" r="20" fill="none" class="mi-loading-path" />
+            </svg>
+          </div>
+          
+          <div v-else-if="loadingState.spinner === 'bars'" class="mi-loading-bars">
+            <div class="mi-loading-bar"></div>
+            <div class="mi-loading-bar"></div>
+            <div class="mi-loading-bar"></div>
+            <div class="mi-loading-bar"></div>
+            <div class="mi-loading-bar"></div>
+          </div>
+          
           <div v-if="loadingState.text" class="mi-loading-text">
             {{ loadingState.text }}
           </div>
@@ -27,17 +37,15 @@
 <script setup lang="ts">
 import { useLoading } from '@/composables/useLoading';
 
-// 定义组件选项
 defineOptions({
   name: 'MiGlobalLoading',
 });
 
-// 获取全局Loading状态
-// 通过useLoading composable获取共享的loading状态
 const { state: loadingState } = useLoading();
 </script>
 
 <style scoped>
+/* 样式与Loading组件保持一致 */
 .mi-loading-mask {
   position: fixed;
   top: 0;
@@ -64,6 +72,7 @@ const { state: loadingState } = useLoading();
   min-width: 120px;
 }
 
+/* 圆点动画样式 */
 .mi-loading-animation {
   display: flex;
   gap: 4px;
@@ -78,21 +87,51 @@ const { state: loadingState } = useLoading();
   animation: mi-loading-bounce 1.4s infinite ease-in-out both;
 }
 
-.mi-loading-dot:nth-child(1) {
-  animation-delay: -0.32s;
+.mi-loading-dot:nth-child(1) { animation-delay: -0.32s; }
+.mi-loading-dot:nth-child(2) { animation-delay: -0.16s; }
+.mi-loading-dot:nth-child(3) { animation-delay: 0s; }
+.mi-loading-dot:nth-child(4) { animation-delay: 0.16s; }
+
+/* 圆环动画样式 */
+.mi-loading-circle {
+  margin-bottom: 12px;
 }
 
-.mi-loading-dot:nth-child(2) {
-  animation-delay: -0.16s;
+.mi-loading-circular {
+  width: 32px;
+  height: 32px;
+  animation: mi-loading-rotate 2s linear infinite;
 }
 
-.mi-loading-dot:nth-child(3) {
-  animation-delay: 0s;
+.mi-loading-path {
+  stroke: #409eff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: mi-loading-dash 1.5s ease-in-out infinite;
 }
 
-.mi-loading-dot:nth-child(4) {
-  animation-delay: 0.16s;
+/* 条形动画样式 */
+.mi-loading-bars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 12px;
 }
+
+.mi-loading-bar {
+  width: 4px;
+  height: 24px;
+  background-color: #409eff;
+  border-radius: 2px;
+  animation: mi-loading-scale 1.2s infinite ease-in-out;
+}
+
+.mi-loading-bar:nth-child(1) { animation-delay: -1.1s; }
+.mi-loading-bar:nth-child(2) { animation-delay: -1.0s; }
+.mi-loading-bar:nth-child(3) { animation-delay: -0.9s; }
+.mi-loading-bar:nth-child(4) { animation-delay: -0.8s; }
+.mi-loading-bar:nth-child(5) { animation-delay: -0.7s; }
 
 .mi-loading-text {
   font-size: 14px;
@@ -102,15 +141,34 @@ const { state: loadingState } = useLoading();
   margin-top: 8px;
 }
 
+/* 动画定义 */
 @keyframes mi-loading-bounce {
-  0%,
-  80%,
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@keyframes mi-loading-rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes mi-loading-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
   100% {
-    transform: scale(0);
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
   }
-  40% {
-    transform: scale(1);
-  }
+}
+
+@keyframes mi-loading-scale {
+  0%, 40%, 100% { transform: scaleY(0.4); }
+  20% { transform: scaleY(1); }
 }
 
 .mi-loading-fade-enter-active,

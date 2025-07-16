@@ -95,16 +95,70 @@ const loading = ref(false);
 </template>
 ```
 
+## 动画类型
+
+Loading组件支持三种不同的动画效果：
+
+### 圆点动画（默认）
+
+```vue
+<template>
+  <mi-loading :visible="loading" text="加载中..." spinner="dots" />
+</template>
+```
+
+### 圆环动画
+
+```vue
+<template>
+  <mi-loading :visible="loading" text="加载中..." spinner="circle" />
+</template>
+```
+
+### 条形动画
+
+```vue
+<template>
+  <mi-loading :visible="loading" text="加载中..." spinner="bars" />
+</template>
+```
+
+### 全局Loading动画类型
+
+```vue
+<script setup lang="ts">
+import { useLoading } from 'midi-ui';
+
+const { showLoading, hideLoading } = useLoading();
+
+// 显示圆点动画
+const showDotsLoading = () => {
+  showLoading('加载中...', 'dots');
+};
+
+// 显示圆环动画
+const showCircleLoading = () => {
+  showLoading('加载中...', 'circle');
+};
+
+// 显示条形动画
+const showBarsLoading = () => {
+  showLoading('加载中...', 'bars');
+};
+</script>
+```
+
 ## API
 
 ### Loading Props
 
-| 参数         | 说明               | 类型    | 默认值 |
-| ------------ | ------------------ | ------- | ------ |
-| visible      | 是否显示Loading    | boolean | false  |
-| text         | 加载文字           | string  | -      |
-| maskClosable | 点击遮罩层是否关闭 | boolean | false  |
-| zIndex       | 层级               | number  | 9999   |
+| 参数         | 说明               | 类型                        | 默认值 |
+| ------------ | ------------------ | --------------------------- | ------ |
+| visible      | 是否显示Loading    | boolean                     | false  |
+| text         | 加载文字           | string                      | -      |
+| maskClosable | 点击遮罩层是否关闭 | boolean                     | false  |
+| zIndex       | 层级               | number                      | 9999   |
+| spinner      | 动画类型           | 'dots' \| 'circle' \| 'bars' | 'dots' |
 
 ### Loading Events
 
@@ -114,18 +168,13 @@ const loading = ref(false);
 
 ### useLoading Composable
 
-提供全局Loading状态管理功能。
-
 ```ts
 import { useLoading } from 'midi-ui';
 
-const { state, showLoading, hideLoading } = useLoading();
+const { showLoading, hideLoading } = useLoading();
 
-// 显示Loading
-showLoading('加载中...');
-
-// 隐藏Loading
-hideLoading();
+// showLoading(text?, spinner?)
+showLoading('加载中...', 'circle');
 ```
 
 ## 特性
@@ -153,7 +202,7 @@ Loading组件支持通过CSS变量进行样式定制：
 }
 ```
 
-## 最佳实践
+## 实践
 
 ### 在异步操作中使用
 

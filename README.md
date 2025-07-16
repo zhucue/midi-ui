@@ -54,15 +54,16 @@ import { Button, Input, Loading, useLoading } from 'midi-ui';
 
 ### Loading 加载
 
-优雅的加载组件，支持全局和局部两种使用方式。
+支持全局和局部两种使用方式，提供多种动画效果。
 
 #### 全局Loading（推荐）
 
 ```vue
 <template>
   <div>
-    <mi-button @click="showGlobalLoading">显示Loading</mi-button>
-    <!-- 全局Loading组件 -->
+    <mi-button @click="showDotsLoading">圆点动画</mi-button>
+    <mi-button @click="showCircleLoading">圆环动画</mi-button>
+    <mi-button @click="showBarsLoading">条形动画</mi-button>
     <mi-global-loading />
   </div>
 </template>
@@ -72,13 +73,19 @@ import { useLoading } from 'midi-ui';
 
 const { showLoading, hideLoading } = useLoading();
 
-const showGlobalLoading = () => {
-  showLoading('加载中...');
+const showDotsLoading = () => {
+  showLoading('加载中...', 'dots');
+  setTimeout(hideLoading, 3000);
+};
 
-  // 3秒后隐藏
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
+const showCircleLoading = () => {
+  showLoading('加载中...', 'circle');
+  setTimeout(hideLoading, 3000);
+};
+
+const showBarsLoading = () => {
+  showLoading('加载中...', 'bars');
+  setTimeout(hideLoading, 3000);
 };
 </script>
 ```
@@ -90,15 +97,10 @@ const showGlobalLoading = () => {
   <mi-loading
     :visible="loading"
     text="数据加载中..."
+    spinner="circle"
     @close="loading = false"
   />
 </template>
-
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const loading = ref(false);
-</script>
 ```
 
 ## 🎯 特性
