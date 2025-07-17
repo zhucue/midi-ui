@@ -35,4 +35,5 @@ lib
 es
 
 # Documentation
-docs/.vitepress/dist 
+docs/.vitepress/dist
+docs/.vitepress/cache 
