@@ -39,6 +39,7 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: '/components/button' },
             { text: 'Input 输入框', link: '/components/input' },
+            { text: 'Switch 开关', link: '/components/switch' },
             { text: 'Color 颜色选择器', link: '/components/color' },
             { text: 'Loading 加载', link: '/components/loading' }
           ]

@@ -155,6 +155,70 @@
         </div>
       </section>
 
+      <!-- Switch开关组件演示 -->
+      <section class="demo-section">
+        <h2>开关 Switch</h2>
+        <div class="demo-block">
+          <h3>基础用法</h3>
+          <div class="demo-row">
+            <mi-switch v-model="switchValue1" />
+            <mi-switch
+              v-model="switchValue2"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            />
+            <span class="demo-text">开关状态：{{ switchValue1 ? '开启' : '关闭' }}</span>
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>文字描述</h3>
+          <div class="demo-row">
+            <mi-switch
+              v-model="switchValue3"
+              active-text="开启"
+              inactive-text="关闭"
+            />
+            <mi-switch
+              v-model="switchValue4"
+              active-text="ON"
+              inactive-text="OFF"
+              text-inside
+            />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>禁用状态</h3>
+          <div class="demo-row">
+            <mi-switch v-model="switchValue5" disabled />
+            <mi-switch v-model="switchValue6" disabled />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>不同尺寸</h3>
+          <div class="demo-row">
+            <mi-switch v-model="switchValue7" size="large" />
+            <mi-switch v-model="switchValue7" size="medium" />
+            <mi-switch v-model="switchValue7" size="small" />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>自定义宽度</h3>
+          <div class="demo-row">
+            <mi-switch
+              v-model="switchValue8"
+              :width="60"
+              active-text="开启"
+              inactive-text="关闭"
+              text-inside
+            />
+          </div>
+        </div>
+      </section>
+
       <!-- Loading组件演示 -->
       <section class="demo-section">
         <h2>Loading 加载</h2>
@@ -229,6 +293,16 @@ const loading = ref(false);
 const inputValue = ref('');
 const clearableValue = ref('可清空的内容');
 const passwordValue = ref('');
+
+// Switch组件状态
+const switchValue1 = ref(true);
+const switchValue2 = ref(false);
+const switchValue3 = ref(true);
+const switchValue4 = ref(false);
+const switchValue5 = ref(true);
+const switchValue6 = ref(false);
+const switchValue7 = ref(true);
+const switchValue8 = ref(false);
 
 // 局部Loading状态
 const localLoading = ref(false);

@@ -5,6 +5,7 @@
 @import './components/button.css';
 @import './components/input.css';
 @import './components/color.css';
+@import './components/switch.css';
 
 /* Loading组件的样式直接在组件内部定义，不需要单独的CSS文件 */
 

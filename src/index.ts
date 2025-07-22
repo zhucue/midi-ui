@@ -4,12 +4,13 @@ import Input from './components/Input/index.vue'
 import Loading from './components/Loading/index.vue'
 import GlobalLoading from './components/GlobalLoading/index.vue'
 import Color from './components/Color/index.vue'
+import Switch from './components/Switch/index.vue'
 import { useLoading } from './composables/useLoading'
 
 // 样式
 import './styles/index.css'
 
-const components = [Button, Input, Loading, GlobalLoading, Color]
+const components = [Button, Input, Loading, GlobalLoading, Color, Switch]
 
 const install = (app: App) => {
   components.forEach((component) => {
@@ -23,6 +24,7 @@ export {
   Loading,
   GlobalLoading,
   Color,
+  Switch,
   useLoading,
   install,
 }

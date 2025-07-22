@@ -1,0 +1,183 @@
+/* Switch 开关组件样式 */
+.mi-switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: var(--m-font-size-base);
+  line-height: var(--m-component-size-default);
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mi-switch.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 开关核心区域 */
+.mi-switch__core {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 40px;
+  height: 20px;
+  background-color: var(--m-border-color);
+  border: 1px solid var(--m-border-color);
+  border-radius: 10px;
+  transition: all var(--m-transition-duration) var(--m-transition-function-ease-in-out-bezier);
+  outline: none;
+}
+
+.mi-switch.is-checked .mi-switch__core {
+  background-color: var(--m-color-primary);
+  border-color: var(--m-color-primary);
+}
+
+/* 滑块 */
+.mi-switch__action {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all var(--m-transition-duration) var(--m-transition-function-ease-in-out-bezier);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mi-switch.is-checked .mi-switch__action {
+  left: calc(100% - 17px);
+}
+
+/* 内部文字 */
+.mi-switch__inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: var(--m-font-size-extra-small);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* 外部文字 */
+.mi-switch__text {
+  color: var(--m-color-text-regular);
+  font-size: var(--m-font-size-base);
+  transition: color var(--m-transition-duration);
+}
+
+.mi-switch__text--left {
+  margin-right: 10px;
+}
+
+.mi-switch__text--right {
+  margin-left: 10px;
+}
+
+.mi-switch__text.is-active {
+  color: var(--m-color-primary);
+}
+
+/* 尺寸变体 */
+/* 小尺寸 */
+.mi-switch--small .mi-switch__core {
+  min-width: 30px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.mi-switch--small .mi-switch__action {
+  width: 12px;
+  height: 12px;
+  top: 1px;
+  left: 1px;
+}
+
+.mi-switch--small.is-checked .mi-switch__action {
+  left: calc(100% - 13px);
+}
+
+.mi-switch--small .mi-switch__inner {
+  font-size: 10px;
+}
+
+.mi-switch--small .mi-switch__text {
+  font-size: var(--m-font-size-small);
+}
+
+/* 大尺寸 */
+.mi-switch--large .mi-switch__core {
+  min-width: 50px;
+  height: 24px;
+  border-radius: 12px;
+}
+
+.mi-switch--large .mi-switch__action {
+  width: 20px;
+  height: 20px;
+  top: 1px;
+  left: 1px;
+}
+
+.mi-switch--large.is-checked .mi-switch__action {
+  left: calc(100% - 21px);
+}
+
+.mi-switch--large .mi-switch__inner {
+  font-size: var(--m-font-size-small);
+}
+
+.mi-switch--large .mi-switch__text {
+  font-size: var(--m-font-size-medium);
+}
+
+/* 禁用状态 */
+.mi-switch.is-disabled .mi-switch__core {
+  background-color: var(--m-color-info-light-9);
+  border-color: var(--m-color-info-light-7);
+}
+
+.mi-switch.is-disabled.is-checked .mi-switch__core {
+  background-color: var(--m-color-primary-light-5);
+  border-color: var(--m-color-primary-light-5);
+}
+
+.mi-switch.is-disabled .mi-switch__action {
+  background-color: var(--m-color-info-light-7);
+}
+
+.mi-switch.is-disabled .mi-switch__text {
+  color: var(--m-color-text-disabled);
+}
+
+/* 悬停效果 */
+.mi-switch:not(.is-disabled):hover .mi-switch__core {
+  border-color: var(--m-color-primary-light-3);
+}
+
+.mi-switch:not(.is-disabled).is-checked:hover .mi-switch__core {
+  background-color: var(--m-color-primary-light-3);
+  border-color: var(--m-color-primary-light-3);
+}
+
+/* 焦点效果 */
+.mi-switch:not(.is-disabled):focus-within .mi-switch__core {
+  box-shadow: 0 0 0 2px var(--m-color-primary-light-8);
+}
+
+/* 有文字时的样式调整 */
+.mi-switch--with-text .mi-switch__core {
+  min-width: 44px;
+}
+
+.mi-switch--small.mi-switch--with-text .mi-switch__core {
+  min-width: 36px;
+}
+
+.mi-switch--large.mi-switch--with-text .mi-switch__core {
+  min-width: 54px;
+}

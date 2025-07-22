@@ -53,6 +53,17 @@ app.use(MidiUI);
   <input style="margin-right: 8px; padding: 8px 12px; border: 1px solid #dcdfe6; border-radius: 4px;" placeholder="禁用状态" disabled>
 </div>
 
+### Switch开关组件
+
+<div style="margin: 20px 0;">
+  <div style="display: inline-block; width: 40px; height: 20px; background: #409eff; border-radius: 10px; position: relative; margin-right: 16px;">
+    <div style="position: absolute; top: 2px; right: 2px; width: 16px; height: 16px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
+  </div>
+  <div style="display: inline-block; width: 40px; height: 20px; background: #dcdfe6; border-radius: 10px; position: relative;">
+    <div style="position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; background: white; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,0.3);"></div>
+  </div>
+</div>
+
 ### Loading组件
 
 <div style="margin: 20px 0; text-align: center;">
@@ -78,4 +89,5 @@ app.use(MidiUI);
 
 - **Button 按钮** - 常用的操作按钮，支持多种类型和状态
 - **Input 输入框** - 功能丰富的输入框组件，支持多种类型和验证
+- **Switch 开关** - 表示两种相互对立状态间的切换，支持禁用、颜色控制、文字描述和尺寸控制
 - **Loading 加载** - 优雅的加载组件，支持全局和局部Loading效果
