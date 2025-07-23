@@ -1,0 +1,369 @@
+/* Table 表格组件样式 */
+.mi-table {
+  position: relative;
+  box-sizing: border-box;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--m-bg-color);
+  font-size: var(--m-font-size-base);
+  color: var(--m-color-text-regular);
+}
+
+.mi-table__wrapper {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--m-border-color-lighter);
+  border-radius: var(--m-border-radius-base);
+}
+
+.mi-table__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+/* 表头样式 */
+.mi-table__header {
+  background-color: var(--m-bg-color-page);
+}
+
+.mi-table__header-cell {
+  padding: 12px 8px;
+  background-color: var(--m-bg-color-page);
+  border-bottom: 1px solid var(--m-border-color-lighter);
+  font-weight: 500;
+  color: var(--m-color-text-primary);
+  text-align: left;
+  vertical-align: middle;
+  position: relative;
+  user-select: none;
+}
+
+.mi-table__header-cell--sortable {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mi-table__header-cell--sortable:hover {
+  background-color: var(--m-border-color-extra-light);
+}
+
+/* 表体样式 */
+.mi-table__body {
+  background-color: var(--m-bg-color);
+}
+
+.mi-table__row {
+  transition: background-color 0.3s ease;
+}
+
+.mi-table__row:hover {
+  background-color: var(--m-border-color-extra-light);
+}
+
+.mi-table__row--striped {
+  background-color: var(--m-bg-color-page);
+}
+
+.mi-table__row--striped:hover {
+  background-color: var(--m-border-color-extra-light);
+}
+
+.mi-table__row--current {
+  background-color: var(--m-color-primary-light-9);
+}
+
+.mi-table__cell-wrapper {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--m-border-color-lighter);
+  vertical-align: middle;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.mi-table__cell {
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+/* 单元格对齐 */
+.mi-table__cell--left {
+  text-align: left;
+}
+
+.mi-table__cell--center {
+  text-align: center;
+}
+
+.mi-table__cell--right {
+  text-align: right;
+}
+
+/* 边框样式 */
+.mi-table--border .mi-table__header-cell,
+.mi-table--border .mi-table__cell-wrapper {
+  border-right: 1px solid var(--m-border-color-lighter);
+}
+
+.mi-table--border .mi-table__header-cell:last-child,
+.mi-table--border .mi-table__cell-wrapper:last-child {
+  border-right: none;
+}
+
+/* 尺寸变体 */
+.mi-table--small .mi-table__header-cell,
+.mi-table--small .mi-table__cell-wrapper {
+  padding: 8px 6px;
+}
+
+.mi-table--large .mi-table__header-cell,
+.mi-table--large .mi-table__cell-wrapper {
+  padding: 16px 12px;
+}
+
+/* 排序图标 */
+.mi-table__sort-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  height: 14px;
+  width: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+  overflow: initial;
+  position: relative;
+  margin-left: 4px;
+}
+
+.mi-table__sort-icon {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  position: absolute;
+  left: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mi-table__sort-icon--asc {
+  top: -2px;
+  border-bottom-color: var(--m-color-text-placeholder);
+}
+
+.mi-table__sort-icon--desc {
+  bottom: -2px;
+  border-top-color: var(--m-color-text-placeholder);
+}
+
+.mi-table__sort-icon:hover {
+  border-bottom-color: var(--m-color-text-secondary);
+  border-top-color: var(--m-color-text-secondary);
+}
+
+.mi-table__sort-icon--active {
+  border-bottom-color: var(--m-color-primary) !important;
+  border-top-color: var(--m-color-primary) !important;
+}
+
+/* 复选框样式 */
+.mi-table__checkbox {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid var(--m-border-color);
+  background-color: var(--m-bg-color);
+  transition: all 0.3s ease;
+}
+
+.mi-table__checkbox:checked {
+  background-color: var(--m-color-primary);
+  border-color: var(--m-color-primary);
+}
+
+.mi-table__checkbox:indeterminate {
+  background-color: var(--m-color-primary);
+  border-color: var(--m-color-primary);
+}
+
+/* 展开图标 */
+.mi-table__expand-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-left-color: var(--m-color-text-placeholder);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  vertical-align: middle;
+}
+
+.mi-table__expand-icon--expanded {
+  transform: rotate(90deg);
+}
+
+.mi-table__expand-icon:hover {
+  border-left-color: var(--m-color-primary);
+}
+
+/* 展开行 */
+.mi-table__expand-row {
+  background-color: var(--m-bg-color-page);
+}
+
+.mi-table__expand-cell {
+  padding: 20px 50px;
+  border-bottom: 1px solid var(--m-border-color-lighter);
+}
+
+.mi-table__expand-content {
+  color: var(--m-color-text-regular);
+}
+
+/* 空数据 */
+.mi-table__empty-row {
+  background-color: var(--m-bg-color);
+}
+
+.mi-table__empty-cell {
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: none;
+}
+
+.mi-table__empty {
+  color: var(--m-color-text-placeholder);
+  font-size: var(--m-font-size-base);
+}
+
+/* 固定列 */
+.mi-table__fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-shadow: var(--m-box-shadow-base);
+  background-color: var(--m-bg-color);
+}
+
+.mi-table__fixed-right {
+  right: 0;
+  left: auto;
+  box-shadow: -1px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 滚动条样式 */
+.mi-table__wrapper::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.mi-table__wrapper::-webkit-scrollbar-track {
+  background: var(--m-border-color-extra-light);
+}
+
+.mi-table__wrapper::-webkit-scrollbar-thumb {
+  background: var(--m-border-color);
+  border-radius: 3px;
+}
+
+.mi-table__wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--m-border-color-hover);
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .mi-table__header-cell,
+  .mi-table__cell-wrapper {
+    padding: 8px 4px;
+    font-size: var(--m-font-size-small);
+  }
+  
+  .mi-table__sort-wrapper {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .mi-table__sort-icon {
+    border-width: 4px;
+  }
+  
+  .mi-table__checkbox {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* 加载状态 */
+.mi-table--loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.mi-table--loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+/* 高度限制时的滚动 */
+.mi-table[style*="height"] .mi-table__wrapper,
+.mi-table[style*="max-height"] .mi-table__wrapper {
+  overflow-y: auto;
+}
+
+/* 表格适应容器 */
+.mi-table--fit {
+  table-layout: auto;
+}
+
+.mi-table--fit .mi-table__table {
+  table-layout: auto;
+}
+
+/* 悬停效果增强 */
+.mi-table__row:hover .mi-table__cell {
+  color: var(--m-color-text-primary);
+}
+
+/* 选中行样式 */
+.mi-table__row--selected {
+  background-color: var(--m-color-primary-light-9);
+}
+
+.mi-table__row--selected:hover {
+  background-color: var(--m-color-primary-light-8);
+}
+
+/* 禁用状态 */
+.mi-table--disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* 紧凑模式 */
+.mi-table--compact .mi-table__header-cell,
+.mi-table--compact .mi-table__cell-wrapper {
+  padding: 6px 4px;
+}
+
+/* 无边框模式 */
+.mi-table--borderless .mi-table__wrapper {
+  border: none;
+}
+
+.mi-table--borderless .mi-table__header-cell,
+.mi-table--borderless .mi-table__cell-wrapper {
+  border: none;
+}

@@ -64,6 +64,32 @@ app.use(MidiUI);
   </div>
 </div>
 
+### Table表格组件
+
+<div style="margin: 20px 0;">
+  <table style="width: 100%; border-collapse: collapse; border: 1px solid #ebeef5; border-radius: 4px; overflow: hidden;">
+    <thead style="background: #f2f3f5;">
+      <tr>
+        <th style="padding: 12px 8px; border-bottom: 1px solid #ebeef5; text-align: left; font-weight: 500;">姓名</th>
+        <th style="padding: 12px 8px; border-bottom: 1px solid #ebeef5; text-align: left; font-weight: 500;">日期</th>
+        <th style="padding: 12px 8px; border-bottom: 1px solid #ebeef5; text-align: left; font-weight: 500;">地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background: #fff;">
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">王小虎</td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">2016-05-02</td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">上海市普陀区金沙江路 1518 弄</td>
+      </tr>
+      <tr style="background: #f9f9f9;">
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">王小虎</td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">2016-05-04</td>
+        <td style="padding: 12px 8px; border-bottom: 1px solid #ebeef5;">上海市普陀区金沙江路 1517 弄</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ### Loading组件
 
 <div style="margin: 20px 0; text-align: center;">
@@ -90,4 +116,5 @@ app.use(MidiUI);
 - **Button 按钮** - 常用的操作按钮，支持多种类型和状态
 - **Input 输入框** - 功能丰富的输入框组件，支持多种类型和验证
 - **Switch 开关** - 表示两种相互对立状态间的切换，支持禁用、颜色控制、文字描述和尺寸控制
+- **Table 表格** - 用于展示多条结构类似的数据，支持排序、选择、自定义列等功能
 - **Loading 加载** - 优雅的加载组件，支持全局和局部Loading效果

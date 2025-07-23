@@ -219,6 +219,53 @@
         </div>
       </section>
 
+      <!-- Table表格组件演示 -->
+      <section class="demo-section">
+        <h2>表格 Table</h2>
+        <div class="demo-block">
+          <h3>基础表格</h3>
+          <div class="demo-row">
+            <mi-table :data="tableData" :columns="tableColumns" />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>带斑马纹表格</h3>
+          <div class="demo-row">
+            <mi-table :data="tableData" :columns="tableColumns" stripe />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>带边框表格</h3>
+          <div class="demo-row">
+            <mi-table :data="tableData" :columns="tableColumns" border />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>多选表格</h3>
+          <div class="demo-row">
+            <mi-table
+              :data="tableData"
+              :columns="selectionColumns"
+              @selection-change="handleSelectionChange"
+            />
+          </div>
+        </div>
+
+        <div class="demo-block">
+          <h3>排序表格</h3>
+          <div class="demo-row">
+            <mi-table
+              :data="tableData"
+              :columns="sortableColumns"
+              @sort-change="handleSortChange"
+            />
+          </div>
+        </div>
+      </section>
+
       <!-- Loading组件演示 -->
       <section class="demo-section">
         <h2>Loading 加载</h2>
@@ -304,6 +351,99 @@ const switchValue6 = ref(false);
 const switchValue7 = ref(true);
 const switchValue8 = ref(false);
 
+// Table组件数据
+const tableData = ref([
+  {
+    date: '2016-05-02',
+    name: '王小虎',
+    address: '上海市普陀区金沙江路 1518 弄',
+    age: 32
+  },
+  {
+    date: '2016-05-04',
+    name: '王小虎',
+    address: '上海市普陀区金沙江路 1517 弄',
+    age: 28
+  },
+  {
+    date: '2016-05-01',
+    name: '王小虎',
+    address: '上海市普陀区金沙江路 1519 弄',
+    age: 35
+  },
+  {
+    date: '2016-05-03',
+    name: '王小虎',
+    address: '上海市普陀区金沙江路 1516 弄',
+    age: 30
+  }
+]);
+
+// 基础表格列配置
+const tableColumns = ref([
+  {
+    prop: 'date',
+    label: '日期',
+    width: '180'
+  },
+  {
+    prop: 'name',
+    label: '姓名',
+    width: '120'
+  },
+  {
+    prop: 'address',
+    label: '地址'
+  }
+]);
+
+// 多选表格列配置
+const selectionColumns = ref([
+  {
+    type: 'selection',
+    width: '55'
+  },
+  {
+    prop: 'date',
+    label: '日期',
+    width: '180'
+  },
+  {
+    prop: 'name',
+    label: '姓名',
+    width: '120'
+  },
+  {
+    prop: 'address',
+    label: '地址'
+  }
+]);
+
+// 可排序表格列配置
+const sortableColumns = ref([
+  {
+    prop: 'date',
+    label: '日期',
+    width: '180',
+    sortable: true
+  },
+  {
+    prop: 'name',
+    label: '姓名',
+    width: '120'
+  },
+  {
+    prop: 'age',
+    label: '年龄',
+    width: '80',
+    sortable: true
+  },
+  {
+    prop: 'address',
+    label: '地址'
+  }
+]);
+
 // 局部Loading状态
 const localLoading = ref(false);
 const localCircleLoading = ref(false);
@@ -368,6 +508,20 @@ const showBarsLoading = () => {
   setTimeout(() => {
     hideLoading();
   }, 3000);
+};
+
+/**
+ * 处理表格选择变化
+ */
+const handleSelectionChange = (selection: any[]) => {
+  console.log('选中的行:', selection);
+};
+
+/**
+ * 处理表格排序变化
+ */
+const handleSortChange = ({ column, prop, order }: any) => {
+  console.log('排序变化:', { column, prop, order });
 };
 </script>
 
