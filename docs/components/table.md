@@ -468,7 +468,7 @@ const columns = ref([
 | summary-method | 自定义的合计计算方法 | Function(columns, data) | — | — |
 | span-method | 合并行或列的计算方法 | Function(row, column, rowIndex, columnIndex) | — | — |
 
-### Table Events
+<!-- ### Table Events
 
 | 事件名 | 说明 | 回调参数 |
 | --- | --- | --- |
@@ -479,9 +479,9 @@ const columns = ref([
 | row-click | 当某一行被点击时会触发该事件 | row, column, event |
 | sort-change | 当表格的排序条件发生变化的时候会触发该事件 | { column, prop, order } |
 | expand-change | 当用户对某一行展开或者关闭的时候会触发该事件 | row, expandedRows |
-| current-change | 当表格的当前行发生变化的时候会触发该事件 | currentRow, oldCurrentRow |
+| current-change | 当表格的当前行发生变化的时候会触发该事件 | currentRow, oldCurrentRow | -->
 
-### Table Column
+<!-- ### Table Column
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 |
 | --- | --- | --- | --- | --- |
@@ -495,12 +495,12 @@ const columns = ref([
 | align | 对齐方式 | string | left / center / right | left |
 | header-align | 表头对齐方式 | string | left / center / right | — |
 | show-overflow-tooltip | 当内容过长被隐藏时显示 tooltip | boolean | — | false |
-| formatter | 用来格式化内容 | Function(row, column, cellValue, index) | — | — |
+| formatter | 用来格式化内容 | Function(row, column, cellValue, index) | — | — | -->
 
-### Table Slots
+<!-- ### Table Slots
 
 | 插槽名 | 说明 | 参数 |
 | --- | --- | --- |
 | — | 自定义列的内容 | { row, column, $index } |
 | expand | 展开行的内容 | { row, $index } |
-| empty | 空数据时的内容 | — |
+| empty | 空数据时的内容 | — | -->
