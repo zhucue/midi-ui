@@ -118,7 +118,7 @@ const showBarsLoading = () => {
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/midi-ui.git
+git clone https://github.com/zhucue/midi-ui.git
 
 # 安装依赖
 npm install
@@ -133,10 +133,3 @@ npm run build:lib
 npm run docs:build
 ```
 
-## 📖 文档
-
-详细文档请访问：[文档地址](https://your-docs-url.com)
-
-## 📄 许可证
-
-MIT License © 2024 Midi UI

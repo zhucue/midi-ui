@@ -1,617 +1,122 @@
 <template>
   <div class="app">
-    <header class="app-header">
-      <h1>Midi UI</h1>
-      <p>基于 Vue 3.5 + Pinia + Vite + TypeScript 的组件库</p>
-    </header>
+    <!-- 顶部导航 -->
+    <DemoNavbar />
 
-    <main class="app-main">
-      <!-- 按钮组件演示 -->
-      <section class="demo-section">
-        <h2>按钮 Button</h2>
-        <div class="demo-block">
-          <h3>基础用法</h3>
-          <div class="demo-row">
-            <mi-button>默认按钮</mi-button>
-            <mi-button type="primary">主要按钮</mi-button>
-            <mi-button type="success">成功按钮</mi-button>
-            <mi-button type="warning">警告按钮</mi-button>
-            <mi-button type="danger">危险按钮</mi-button>
-            <mi-button type="info">信息按钮</mi-button>
-          </div>
-        </div>
+    <!-- 英雄区域 -->
+    <DemoHero />
 
-        <div class="demo-block">
-          <h3>朴素按钮</h3>
-          <div class="demo-row">
-            <mi-button plain>朴素按钮</mi-button>
-            <mi-button type="primary" plain>主要按钮</mi-button>
-            <mi-button type="success" plain>成功按钮</mi-button>
-            <mi-button type="warning" plain>警告按钮</mi-button>
-            <mi-button type="danger" plain>危险按钮</mi-button>
-            <mi-button type="info" plain>信息按钮</mi-button>
-          </div>
-        </div>
+    <!-- 特性介绍 -->
+    <DemoFeatures />
 
-        <div class="demo-block">
-          <h3>圆角按钮</h3>
-          <div class="demo-row">
-            <mi-button round>圆角按钮</mi-button>
-            <mi-button type="primary" round>主要按钮</mi-button>
-            <mi-button type="success" round>成功按钮</mi-button>
-            <mi-button type="warning" round>警告按钮</mi-button>
-            <mi-button type="danger" round>危险按钮</mi-button>
-            <mi-button type="info" round>信息按钮</mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>图标按钮</h3>
-          <div class="demo-row">
-            <mi-button icon="🔍" circle></mi-button>
-            <mi-button type="primary" icon="✏️" circle></mi-button>
-            <mi-button type="success" icon="✓" circle></mi-button>
-            <mi-button type="warning" icon="⚠️" circle></mi-button>
-            <mi-button type="danger" icon="✕" circle></mi-button>
-            <mi-button type="info" icon="ℹ️" circle></mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>不同尺寸</h3>
-          <div class="demo-row">
-            <mi-button size="large">大型按钮</mi-button>
-            <mi-button>默认按钮</mi-button>
-            <mi-button size="small">小型按钮</mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>加载状态</h3>
-          <div class="demo-row">
-            <mi-button :loading="loading" @click="toggleLoading">
-              {{ loading ? '加载中' : '点击加载' }}
-            </mi-button>
-            <mi-button type="primary" loading>加载中</mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>禁用状态</h3>
-          <div class="demo-row">
-            <mi-button disabled>禁用按钮</mi-button>
-            <mi-button type="primary" disabled>主要按钮</mi-button>
-            <mi-button type="success" disabled>成功按钮</mi-button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 输入框组件演示 -->
-      <section class="demo-section">
-        <h2>输入框 Input</h2>
-        <div class="demo-block">
-          <h3>基础用法</h3>
-          <div class="demo-row">
-            <mi-input
-              v-model="inputValue"
-              placeholder="请输入内容"
-              style="width: 200px"
-            ></mi-input>
-            <span class="demo-text">输入的值：{{ inputValue }}</span>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>禁用状态</h3>
-          <div class="demo-row">
-            <mi-input
-              disabled
-              placeholder="禁用状态"
-              style="width: 200px"
-            ></mi-input>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>可清空</h3>
-          <div class="demo-row">
-            <mi-input
-              v-model="clearableValue"
-              clearable
-              placeholder="可清空的输入框"
-              style="width: 200px"
-            ></mi-input>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>密码框</h3>
-          <div class="demo-row">
-            <mi-input
-              v-model="passwordValue"
-              type="password"
-              show-password
-              placeholder="请输入密码"
-              style="width: 200px"
-            ></mi-input>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>不同尺寸</h3>
-          <div class="demo-row">
-            <mi-input
-              size="large"
-              placeholder="大型输入框"
-              style="width: 200px"
-            ></mi-input>
-            <mi-input placeholder="默认输入框" style="width: 200px"></mi-input>
-            <mi-input
-              size="small"
-              placeholder="小型输入框"
-              style="width: 200px"
-            ></mi-input>
-          </div>
-        </div>
-      </section>
-
-      <!-- Switch开关组件演示 -->
-      <section class="demo-section">
-        <h2>开关 Switch</h2>
-        <div class="demo-block">
-          <h3>基础用法</h3>
-          <div class="demo-row">
-            <mi-switch v-model="switchValue1" />
-            <mi-switch
-              v-model="switchValue2"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
-            />
-            <span class="demo-text">开关状态：{{ switchValue1 ? '开启' : '关闭' }}</span>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>文字描述</h3>
-          <div class="demo-row">
-            <mi-switch
-              v-model="switchValue3"
-              active-text="开启"
-              inactive-text="关闭"
-            />
-            <mi-switch
-              v-model="switchValue4"
-              active-text="ON"
-              inactive-text="OFF"
-              text-inside
-            />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>禁用状态</h3>
-          <div class="demo-row">
-            <mi-switch v-model="switchValue5" disabled />
-            <mi-switch v-model="switchValue6" disabled />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>不同尺寸</h3>
-          <div class="demo-row">
-            <mi-switch v-model="switchValue7" size="large" />
-            <mi-switch v-model="switchValue7" size="medium" />
-            <mi-switch v-model="switchValue7" size="small" />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>自定义宽度</h3>
-          <div class="demo-row">
-            <mi-switch
-              v-model="switchValue8"
-              :width="60"
-              active-text="开启"
-              inactive-text="关闭"
-              text-inside
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Table表格组件演示 -->
-      <section class="demo-section">
-        <h2>表格 Table</h2>
-        <div class="demo-block">
-          <h3>基础表格</h3>
-          <div class="demo-row">
-            <mi-table :data="tableData" :columns="tableColumns" />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>带斑马纹表格</h3>
-          <div class="demo-row">
-            <mi-table :data="tableData" :columns="tableColumns" stripe />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>带边框表格</h3>
-          <div class="demo-row">
-            <mi-table :data="tableData" :columns="tableColumns" border />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>多选表格</h3>
-          <div class="demo-row">
-            <mi-table
-              :data="tableData"
-              :columns="selectionColumns"
-              @selection-change="handleSelectionChange"
-            />
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>排序表格</h3>
-          <div class="demo-row">
-            <mi-table
-              :data="tableData"
-              :columns="sortableColumns"
-              @sort-change="handleSortChange"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- Loading组件演示 -->
-      <section class="demo-section">
-        <h2>Loading 加载</h2>
-        <div class="demo-block">
-          <h3>全局Loading</h3>
-          <div class="demo-row">
-            <mi-button type="primary" @click="showGlobalLoading">
-              显示全局Loading
-            </mi-button>
-            <mi-button type="success" @click="showGlobalLoadingWithText">
-              显示带文字的Loading
-            </mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>不同动画类型</h3>
-          <div class="demo-row">
-            <mi-button @click="showDotsLoading">圆点动画</mi-button>
-            <mi-button @click="showCircleLoading">圆环动画</mi-button>
-            <mi-button @click="showBarsLoading">条形动画</mi-button>
-          </div>
-        </div>
-
-        <div class="demo-block">
-          <h3>局部Loading</h3>
-          <div class="demo-row">
-            <mi-button @click="localLoading = true">显示局部Loading</mi-button>
-            <mi-button @click="localCircleLoading = true">圆环局部Loading</mi-button>
-            <mi-button @click="localBarsLoading = true">条形局部Loading</mi-button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 局部Loading组件 -->
-      <mi-loading
-        :visible="localLoading"
-        text="局部加载中..."
-        spinner="dots"
-        :mask-closable="true"
-        @close="localLoading = false"
-      />
-      
-      <mi-loading
-        :visible="localCircleLoading"
-        text="圆环加载中..."
-        spinner="circle"
-        :mask-closable="true"
-        @close="localCircleLoading = false"
-      />
-      
-      <mi-loading
-        :visible="localBarsLoading"
-        text="条形加载中..."
-        spinner="bars"
-        :mask-closable="true"
-        @close="localBarsLoading = false"
-      />
-
-      <!-- 全局Loading组件 -->
-      <mi-global-loading />
+    <!-- 组件展示区域 -->
+    <main class="components-section" id="components">
+      <div class="components-container">
+        <h2 class="section-title">组件展示</h2>
+        
+        <!-- 各个组件的演示 -->
+        <ButtonDemo />
+        <SwitchDemo />
+        <InputDemo />
+        <LoadingDemo />
+        <TableDemo />
+      </div>
     </main>
+
+    <!-- 页脚 -->
+    <DemoFooter />
+
+    <!-- 全局Loading组件 -->
+    <mi-global-loading />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import GlobalLoading from './components/GlobalLoading/index.vue';
-import { useLoading } from './composables/useLoading';
 
-const loading = ref(false);
-const inputValue = ref('');
-const clearableValue = ref('可清空的内容');
-const passwordValue = ref('');
-
-// Switch组件状态
-const switchValue1 = ref(true);
-const switchValue2 = ref(false);
-const switchValue3 = ref(true);
-const switchValue4 = ref(false);
-const switchValue5 = ref(true);
-const switchValue6 = ref(false);
-const switchValue7 = ref(true);
-const switchValue8 = ref(false);
-
-// Table组件数据
-const tableData = ref([
-  {
-    date: '2016-05-02',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1518 弄',
-    age: 32
-  },
-  {
-    date: '2016-05-04',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1517 弄',
-    age: 28
-  },
-  {
-    date: '2016-05-01',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1519 弄',
-    age: 35
-  },
-  {
-    date: '2016-05-03',
-    name: '王小虎',
-    address: '上海市普陀区金沙江路 1516 弄',
-    age: 30
-  }
-]);
-
-// 基础表格列配置
-const tableColumns = ref([
-  {
-    prop: 'date',
-    label: '日期',
-    width: '180'
-  },
-  {
-    prop: 'name',
-    label: '姓名',
-    width: '120'
-  },
-  {
-    prop: 'address',
-    label: '地址'
-  }
-]);
-
-// 多选表格列配置
-const selectionColumns = ref([
-  {
-    type: 'selection',
-    width: '55'
-  },
-  {
-    prop: 'date',
-    label: '日期',
-    width: '180'
-  },
-  {
-    prop: 'name',
-    label: '姓名',
-    width: '120'
-  },
-  {
-    prop: 'address',
-    label: '地址'
-  }
-]);
-
-// 可排序表格列配置
-const sortableColumns = ref([
-  {
-    prop: 'date',
-    label: '日期',
-    width: '180',
-    sortable: true
-  },
-  {
-    prop: 'name',
-    label: '姓名',
-    width: '120'
-  },
-  {
-    prop: 'age',
-    label: '年龄',
-    width: '80',
-    sortable: true
-  },
-  {
-    prop: 'address',
-    label: '地址'
-  }
-]);
-
-// 局部Loading状态
-const localLoading = ref(false);
-const localCircleLoading = ref(false);
-const localBarsLoading = ref(false);
-
-const { showLoading, hideLoading } = useLoading();
-
-const toggleLoading = () => {
-  loading.value = true;
-  setTimeout(() => {
-    loading.value = false;
-  }, 2000);
-};
-
-/**
- * 显示全局Loading演示
- * 展示基础的Loading效果，3秒后自动隐藏
- */
-const showGlobalLoading = () => {
-  showLoading();
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
-};
-
-/**
- * 显示带文字的全局Loading演示
- * 展示带自定义文字的Loading效果，3秒后自动隐藏
- */
-const showGlobalLoadingWithText = () => {
-  showLoading('数据加载中，请稍候...');
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
-};
-
-/**
- * 显示圆点动画Loading
- */
-const showDotsLoading = () => {
-  showLoading('圆点加载中...', 'dots');
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
-};
-
-/**
- * 显示圆环动画Loading
- */
-const showCircleLoading = () => {
-  showLoading('圆环加载中...', 'circle');
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
-};
-
-/**
- * 显示条形动画Loading
- */
-const showBarsLoading = () => {
-  showLoading('条形加载中...', 'bars');
-  setTimeout(() => {
-    hideLoading();
-  }, 3000);
-};
-
-/**
- * 处理表格选择变化
- */
-const handleSelectionChange = (selection: any[]) => {
-  console.log('选中的行:', selection);
-};
-
-/**
- * 处理表格排序变化
- */
-const handleSortChange = ({ column, prop, order }: any) => {
-  console.log('排序变化:', { column, prop, order });
-};
+import DemoNavbar from './components/demo/Navbar.vue'
+import DemoHero from './components/demo/Hero.vue'
+import DemoFeatures from './components/demo/Features.vue'
+import DemoFooter from './components/demo/Footer.vue'
+import ButtonDemo from './components/demo/ButtonDemo.vue'
+import SwitchDemo from './components/demo/SwitchDemo.vue'
+import InputDemo from './components/demo/InputDemo.vue'
+import LoadingDemo from './components/demo/LoadingDemo.vue'
+import TableDemo from './components/demo/TableDemo.vue'
 </script>
 
 <style scoped>
-.app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.app-header {
-  background: linear-gradient(
-    135deg,
-    var(--m-color-primary),
-    var(--m-color-primary-light-3)
-  );
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.app-header h1 {
-  font-size: 48px;
-  margin: 0 0 16px 0;
-  font-weight: 300;
-}
-
-.app-header p {
-  font-size: 18px;
+/* 全局样式重置 */
+* {
   margin: 0;
-  opacity: 0.9;
-}
-
-.app-main {
-  flex: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  width: 100%;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.demo-section {
-  margin-bottom: 60px;
+.app {
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
-.demo-section h2 {
-  font-size: 32px;
-  color: var(--m-color-text-primary);
-  margin: 0 0 30px 0;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--m-color-primary);
+/* 组件展示区域 */
+.components-section {
+  padding: 100px 0;
+  background: #fafafa;
 }
 
-.demo-block {
-  margin-bottom: 30px;
+.components-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 80px;
+  color: #1a1a1a;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+  
+  .components-container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+}
+
+.demo-card {
+  background: white;
+  border-radius: 12px;
   padding: 24px;
-  border: 1px solid var(--m-border-color-lighter);
-  border-radius: 8px;
-  background: var(--m-bg-color);
+  margin-bottom: 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-.demo-block h3 {
-  font-size: 18px;
-  color: var(--m-color-text-primary);
-  margin: 0 0 16px 0;
-  font-weight: 500;
+.demo-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #1a1a1a;
 }
 
 .demo-row {
   display: flex;
-  align-items: center;
   gap: 16px;
+  align-items: center;
   flex-wrap: wrap;
-}
-
-.demo-text {
-  color: var(--m-color-text-secondary);
-  font-size: 14px;
-}
-
-.app-footer {
-  background: var(--m-bg-color-page);
-  padding: 20px;
-  text-align: center;
-  color: var(--m-color-text-secondary);
-  border-top: 1px solid var(--m-border-color-lighter);
-}
-
-.app-footer p {
-  margin: 0;
 }
 </style>

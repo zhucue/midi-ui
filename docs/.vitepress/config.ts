@@ -49,7 +49,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-username/midi-ui' }
+      { icon: 'github', link: 'https://github.com/zhucue/midi-ui' }
     ]
   }
 }) 
